@@ -1,0 +1,30 @@
+﻿@model Task13.Models.Vars
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Тест</title>
+    <meta charset="utf-8">
+
+   
+</head>
+<body>
+    <div>
+        @ViewBag.PreviousResult
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.DisplayTextFor(x => x._firstNumber) @Html.DisplayFor(x => x._operator) @Html.DisplayTextFor(x => x._secondNumber)
+    </p>
+    <p>
+        @Html.TextBoxFor(x => x._userResult)
+       
+    </p>
+    @Html.HiddenFor(x => x._rightResult, new { id = "Result", Value = @Model._rightResult })
+    <input type="submit" />
+}
+    </div>
+</body>
+</html>
