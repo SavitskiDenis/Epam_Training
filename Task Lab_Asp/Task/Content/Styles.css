@@ -1,0 +1,7 @@
+﻿tr.vision input[type="button"] {
+    visibility: hidden;
+}
+
+tr.vision:hover input[type="button"] {
+    visibility: visible;
+}

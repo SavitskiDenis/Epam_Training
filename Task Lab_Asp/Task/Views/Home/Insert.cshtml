@@ -1,0 +1,61 @@
+﻿@model Task.Models.User
+@{
+    ViewBag.Title = "Добавление";
+}
+
+@using (@Html.BeginForm("Insert", "Home", FormMethod.Post, new { @class = "col-md-offset-1" }))
+{
+    <div class="row" style="margin-bottom:5px ; margin-top:10px">
+        <label class="col-md-2">Имя</label>
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control col-md-4" })
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+    <div class="row " style="margin-bottom:5px">
+        <label class="col-md-2">Фамилия</label>
+        @Html.TextBoxFor(model => model.LastName, new { @class = "form-control col-md-4" })
+        @Html.ValidationMessageFor(model => model.LastName)
+    </div>
+    <div class="row " style="margin-bottom:5px">
+        <label class="col-md-2">Отчество</label>
+        @Html.TextBoxFor(model => model.MiddleName, new { @class = "form-control col-md-4" })
+        @Html.ValidationMessageFor(model => model.MiddleName)
+    </div>
+    <div class="row " style="margin-bottom:5px">
+        <label class="col-md-2">E-mail</label>
+        @Html.TextBoxFor(model => model.E_mail, new { @class = "form-control col-md-4" })
+        @Html.ValidationMessageFor(model => model.E_mail)
+    </div>
+    <div class="row " style="margin-bottom:5px">
+        <label class="col-md-2">Пароль</label>
+        @Html.PasswordFor(model => model.Password, new { @class = "form-control col-md-4" })
+        @Html.ValidationMessageFor(model => model.Password)
+    </div>
+    <div class="row " style="margin-bottom:5px">
+        <label class="col-md-2">Подтверждение</label>
+        @Html.PasswordFor(model => model.Re_Password, new { @class = "form-control col-md-4" })
+        @Html.ValidationMessageFor(model => model.Re_Password)
+    </div>
+    <div class="row " style="margin-bottom:5px">
+        <label class="col-md-2">Возраст</label>
+        @Html.TextBoxFor(model => model.Age, new { @class = "form-control col-md-4" })
+        @Html.ValidationMessageFor(model => model.Age)
+    </div>
+    <div class="row " style="margin-bottom:5px">
+        <label class="col-md-2">Телефон</label>
+        @Html.TextBoxFor(model => model.Phone, new { @class = "form-control col-md-4" })
+        @Html.ValidationMessageFor(model => model.Phone)
+    </div>
+    <div class="row " style="margin-bottom:5px">
+        <label class="col-md-2">Адрес</label>
+        @Html.TextAreaFor(model => model.Address, new { @class = "form-control col-md-4" })
+        @Html.ValidationMessageFor(model => model.Address)
+    </div>
+    <input type="submit" class="col-md2 col-md-offset-4" value="Добавить" style="margin-top:40px;display:inline-block" />
+}
+
+<div class="row col-md-offset-1">
+    <input type="submit" class="col-md2 col-md-offset-4" style="margin-top:10px" value="Назад" onclick="location.href = '@Url.Action("Index", "Home")'" />
+</div>
+
+
+

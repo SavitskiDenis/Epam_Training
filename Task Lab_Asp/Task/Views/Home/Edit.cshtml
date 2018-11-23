@@ -1,0 +1,45 @@
+﻿@model Task.Models.EditUser
+@{
+    ViewBag.Title = "Изменение";
+}
+
+@using (@Html.BeginForm("Edit", "Home", FormMethod.Post, new { @class = "col-md-offset-1" }))
+{
+    @Html.HiddenFor(x=>x.Id)
+    <div class="row" style="margin-bottom:5px ; margin-top:10px">
+        <label class="col-md-2">Имя</label>
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control col-md-4" })
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+    <div class="row " style="margin-bottom:5px">
+        <label class="col-md-2">Фамилия</label>
+        @Html.TextBoxFor(model => model.LastName, new { @class = "form-control col-md-4" })
+        @Html.ValidationMessageFor(model => model.LastName)
+    </div>
+    <div class="row " style="margin-bottom:5px">
+        <label class="col-md-2">Отчество</label>
+        @Html.TextBoxFor(model => model.MiddleName, new { @class = "form-control col-md-4" })
+        @Html.ValidationMessageFor(model => model.MiddleName)
+    </div>
+    <div class="row " style="margin-bottom:5px">
+        <label class="col-md-2">Возраст</label>
+        @Html.TextBoxFor(model => model.Age, new { @class = "form-control col-md-4" })
+        @Html.ValidationMessageFor(model => model.Age)
+    </div>
+    <div class="row " style="margin-bottom:5px">
+        <label class="col-md-2">Телефон</label>
+        @Html.TextBoxFor(model => model.Phone, new { @class = "form-control col-md-4" })
+        @Html.ValidationMessageFor(model => model.Phone)
+    </div>
+    <div class="row " style="margin-bottom:5px">
+        <label class="col-md-2">Адрес</label>
+        @Html.TextAreaFor(model => model.Address, new { @class = "form-control col-md-4" })
+        @Html.ValidationMessageFor(model => model.Address)
+    </div>
+    <input type="submit" class="col-md2 col-md-offset-4" value="Изменить" style="margin-top:40px;display:inline-block" onclick="location.href = '@Url.Action("Edit", "Home")'"/>
+}
+
+<div class="row col-md-offset-1">
+    <input type="button" class="col-md2 col-md-offset-4" style="margin-top:10px" value="Назад" onclick="location.href = '@Url.Action("Index", "Home")'" />
+</div>
+

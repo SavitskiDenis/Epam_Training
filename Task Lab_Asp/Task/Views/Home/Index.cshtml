@@ -1,0 +1,52 @@
+﻿@model Task.Models.IndexViewModel
+@using Task.Helpers
+@{
+    ViewBag.Title = "Главная";
+}
+<table class="table table-hover">
+    <tr>
+        <th>Фамилия</th>
+        <th>Имя</th>
+        <th>Отчество</th>
+        <th>E-mail</th>
+        <th>Возраст</th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach (var a in Model.Users)
+    {
+    <tr class="vision">
+        <td>@a.LastName</td>
+        <td>@a.Name</td>
+        <td>@a.MiddleName</td>
+        <td>@a.E_mail</td>
+        <td>@a.Age</td>
+        <td> <input class="btn btn-default " type="button" style="margin-top:5px;background-color:#428bca;color:white" value="Изменить" onclick="location.href = '@Url.Action("Edit", "Home",new { userId=a.Id})'" /></td>
+        <td><input class="btn btn-default " type="button" style="margin-top:5px;background-color:#428bca;color:white" value="Удалить" onclick="location.href = '@Url.Action("Delete", "Home",new { userId=a.Id})'" /></td>
+    </tr>
+    }
+</table>
+
+<div class="btn-group col-md-offset-3" style="margin-top:5px;margin-bottom:15px">
+    @Html.PageLinks(Model.PageInfo, x => Url.Action("Index","Home", new { sortType = ViewBag.SortType, page = x }))
+</div>
+
+<div class="row" style="margin-top:20px">
+    <div class="col-md-1 col-md-offset-1">
+        <div class="btn-group dropup">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:10px;background-color:#428bca;color:white">
+                Фильтр
+            </button>
+            <ul class="dropdown-menu">
+                <li><a onclick="location.href = '@Url.Action("Index", "Home")'">По имени</a></li>
+                <li><a onclick="location.href = '@Url.Action("Index", "Home",new {sortType="Last Name"})'">По фамилии</a></li>
+                <li><a onclick="location.href = '@Url.Action("Index", "Home",new {sortType="Age"})'">По возрасту</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-1 col-md-offset-1 ">
+        <input name="add" class="btn btn-default " type="button" style="margin-top:10px;background-color:#428bca;color:white" value="Добавить" onclick="location.href = '@Url.Action("Insert", "Home")'" />
+    </div>
+</div>
+
+
